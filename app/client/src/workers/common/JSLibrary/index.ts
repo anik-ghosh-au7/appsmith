@@ -44,7 +44,7 @@ export const defaultLibraries: TJSLibrary[] = [
     name: "forge",
   },
   {
-    accessor: ["authoirzer"],
+    accessor: ["authorizer"],
     lib: new Authorizer({
       authorizerURL: "https://demo.authorizer.dev",
       redirectURL: "https://demo.authorizer.dev/app",
