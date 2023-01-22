@@ -2,6 +2,7 @@ import _, { VERSION as lodashVersion } from "lodash";
 import moment from "moment-timezone";
 import parser from "fast-xml-parser";
 import forge from "node-forge";
+import { Authorizer } from "@authorizerdev/authorizer-js";
 
 export type TJSLibrary = {
   version?: string;
@@ -41,6 +42,17 @@ export const defaultLibraries: TJSLibrary[] = [
     version: "1.3.0",
     docsURL: "https://github.com/digitalbazaar/forge",
     name: "forge",
+  },
+  {
+    accessor: ["authoirzer"],
+    lib: new Authorizer({
+      authorizerURL: "https://demo.authorizer.dev",
+      redirectURL: "https://demo.authorizer.dev/app",
+      clientID: "96fed66c-9779-4694-a79a-260fc489ce33",
+    }),
+    version: "1.1.3",
+    docsURL: "https://github.com/authorizerdev/authorizer-js",
+    name: "authorizer",
   },
 ];
 
