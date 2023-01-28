@@ -15,8 +15,8 @@ class PasswordStrengthIndicatorWidget extends BaseWidget<
         children: [
           {
             propertyName: "value",
-            label: "Password Value",
-            helpText: "Password Strength",
+            label: "Password",
+            helpText: "Password Value",
             controlType: "INPUT_TEXT",
             isBindProperty: true,
             isTriggerProperty: false,

@@ -29,7 +29,7 @@ const StyledCheckBoxLabel = styled.div`
 `;
 
 const PasswordStrengthWrapper = styled.div`
-  margin: 2% 0 5%;
+  margin: 2% 0 2.5%;
 `;
 
 const Flex = styled.div`
