@@ -16,8 +16,8 @@ export const CONFIG = {
   },
   defaults: {
     widgetName: "PasswordStrengthIndicator",
-    rows: 5,
-    columns: 10,
+    rows: 3,
+    columns: 25,
     version: 1,
     value: "",
   },

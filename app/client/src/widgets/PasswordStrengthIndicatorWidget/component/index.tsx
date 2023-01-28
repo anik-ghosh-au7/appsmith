@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { Colors } from "constants/Colors";
 
 interface PasswordStrengthProps {
   strength: string;
@@ -65,7 +66,7 @@ const PasswordStrength = styled.div`
   flex: 0.75;
   border-radius: 5px;
   margin-right: 5px;
-  background-color: #3b82f6;
+  background-color: ${Colors.AZURE_RADIANCE};
   opacity: ${(props: PasswordStrengthProps) =>
     passwordStrengthIndicatorOpacity[props.strength]};
 `;
