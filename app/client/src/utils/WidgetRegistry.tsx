@@ -161,6 +161,9 @@ import CategorySliderWidget, {
 import CodeScannerWidget, {
   CONFIG as CODE_SCANNER_WIDGET_CONFIG,
 } from "widgets/CodeScannerWidget";
+import PasswordStrengthIndicatorWidget, {
+  CONFIG as PASSWORDSTRENGTHINDICATOR_WIDGET_CONFIG,
+} from "widgets/PasswordStrengthIndicatorWidget";
 
 export const ALL_WIDGETS_AND_CONFIG: [any, WidgetConfiguration][] = [
   [CanvasWidget, CANVAS_WIDGET_CONFIG],
@@ -223,6 +226,7 @@ export const ALL_WIDGETS_AND_CONFIG: [any, WidgetConfiguration][] = [
   [FormButtonWidget, FORM_BUTTON_WIDGET_CONFIG],
   [ProgressWidget, PROGRESS_WIDGET_CONFIG],
   [CircularProgressWidget, CIRCULAR_PROGRESS_WIDGET_CONFIG],
+  [PasswordStrengthIndicatorWidget, PASSWORDSTRENGTHINDICATOR_WIDGET_CONFIG],
   /*
    * If a newly added widget works well inside the list widget,
    * please add widget type in the List widget's allowed widget
