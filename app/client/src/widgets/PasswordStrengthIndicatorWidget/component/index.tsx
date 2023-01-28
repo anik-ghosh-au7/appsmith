@@ -20,6 +20,10 @@ type FlexProps = {
   width?: string;
 };
 
+const StyledHeader = styled.p`
+  margin-bottom: 5px;
+`;
+
 const StyledCheckBoxLabel = styled.div`
   margin-left: 5px;
 `;
@@ -171,9 +175,9 @@ const PasswordStrengthIndicator = ({ setDisableButton, value }: PropTypes) => {
           {!!score && <div>{strength}</div>}
         </Flex>
       </PasswordStrengthWrapper>
-      <p>
+      <StyledHeader>
         <b>Criteria for a strong password:</b>
-      </p>
+      </StyledHeader>
       <Flex flexDirection="column">
         <Flex alignItems="center" justifyContent="start">
           <input checked={hasSixChar} readOnly type="checkbox" />
