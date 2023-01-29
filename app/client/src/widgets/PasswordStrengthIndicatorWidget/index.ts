@@ -1,5 +1,6 @@
 import Widget from "./widget";
 import IconSVG from "./icon.svg";
+import { Colors } from "constants/Colors";
 
 export const CONFIG = {
   type: Widget.getWidgetType(),
@@ -20,6 +21,7 @@ export const CONFIG = {
     columns: 25,
     version: 1,
     value: "",
+    indicatorColor: Colors.AZURE_RADIANCE,
   },
   properties: {
     derived: Widget.getDerivedPropertiesMap(),

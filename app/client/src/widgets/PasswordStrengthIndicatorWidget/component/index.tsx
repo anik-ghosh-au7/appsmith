@@ -1,14 +1,15 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { Colors } from "constants/Colors";
 
 interface PasswordStrengthProps {
   strength: string;
+  color: string;
 }
 
 interface PropTypes {
   value: string;
   disableButton: (arg0: boolean) => void;
+  indicatorColor: string;
 }
 
 type FlexProps = {
@@ -66,7 +67,7 @@ const PasswordStrength = styled.div`
   flex: 0.75;
   border-radius: 5px;
   margin-right: 5px;
-  background-color: ${Colors.AZURE_RADIANCE};
+  background-color: ${(props: PasswordStrengthProps) => props.color};
   opacity: ${(props: PasswordStrengthProps) =>
     passwordStrengthIndicatorOpacity[props.strength]};
 `;
@@ -140,7 +141,11 @@ const validatePassword = (
   return { ...res, isValid };
 };
 
-const PasswordStrengthIndicator = ({ disableButton, value }: PropTypes) => {
+const PasswordStrengthIndicator = ({
+  disableButton,
+  indicatorColor,
+  value,
+}: PropTypes) => {
   const [
     {
       hasLowerCase,
@@ -169,10 +174,22 @@ const PasswordStrengthIndicator = ({ disableButton, value }: PropTypes) => {
     <div>
       <PasswordStrengthWrapper>
         <Flex alignItems="center" justifyContent="center" wrap="nowrap">
-          <PasswordStrength strength={score > 2 ? `weak` : `default`} />
-          <PasswordStrength strength={score > 3 ? `good` : `default`} />
-          <PasswordStrength strength={score > 4 ? `strong` : `default`} />
-          <PasswordStrength strength={score > 5 ? `veryStrong` : `default`} />
+          <PasswordStrength
+            color={indicatorColor}
+            strength={score > 2 ? `weak` : `default`}
+          />
+          <PasswordStrength
+            color={indicatorColor}
+            strength={score > 3 ? `good` : `default`}
+          />
+          <PasswordStrength
+            color={indicatorColor}
+            strength={score > 4 ? `strong` : `default`}
+          />
+          <PasswordStrength
+            color={indicatorColor}
+            strength={score > 5 ? `veryStrong` : `default`}
+          />
           {!!score && <div>{strength}</div>}
         </Flex>
       </PasswordStrengthWrapper>

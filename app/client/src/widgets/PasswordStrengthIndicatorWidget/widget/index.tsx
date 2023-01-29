@@ -1,3 +1,5 @@
+import { Colors } from "constants/Colors";
+import { ValidationTypes } from "constants/WidgetValidation";
 import React from "react";
 
 import BaseWidget, { WidgetProps, WidgetState } from "widgets/BaseWidget";
@@ -33,7 +35,29 @@ class PasswordStrengthIndicatorWidget extends BaseWidget<
   }
 
   static getPropertyPaneStyleConfig() {
-    return [];
+    return [
+      {
+        sectionName: "Color",
+        children: [
+          {
+            propertyName: "indicatorColor",
+            label: "Indicator Color",
+            helpText: "Indicator Color Value",
+            controlType: "COLOR_PICKER",
+            isBindProperty: true,
+            isTriggerProperty: false,
+            isJSConvertable: true,
+            validation: {
+              type: ValidationTypes.TEXT,
+              params: {
+                regex: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
+                default: Colors.AZURE_RADIANCE,
+              },
+            },
+          },
+        ],
+      },
+    ];
   }
 
   static getMetaPropertiesMap(): Record<string, boolean> {
@@ -47,10 +71,11 @@ class PasswordStrengthIndicatorWidget extends BaseWidget<
   }
 
   getPageView() {
-    const { value } = this.props;
+    const { indicatorColor, value } = this.props;
     return (
       <PasswordStrengthIndicatorComponent
         disableButton={this.disableButtonBound}
+        indicatorColor={indicatorColor}
         value={value}
       />
     );
