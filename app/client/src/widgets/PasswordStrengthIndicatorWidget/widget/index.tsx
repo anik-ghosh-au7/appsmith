@@ -36,9 +36,9 @@ class PasswordStrengthIndicatorWidget extends BaseWidget<
     return [];
   }
 
-  static getMetaPropertiesMap(): Record<string, any> {
+  static getMetaPropertiesMap(): Record<string, boolean> {
     return {
-      buttonDisabled: undefined,
+      buttonDisabled: true,
     };
   }
 
