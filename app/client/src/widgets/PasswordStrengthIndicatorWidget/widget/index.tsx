@@ -8,6 +8,11 @@ class PasswordStrengthIndicatorWidget extends BaseWidget<
   PasswordStrengthIndicatorWidgetProps,
   WidgetState
 > {
+  disableButtonBound: (status: boolean) => void;
+  constructor(props: PasswordStrengthIndicatorWidgetProps) {
+    super(props);
+    this.disableButtonBound = this.disableButton.bind(this);
+  }
   static getPropertyPaneContentConfig() {
     return [
       {
@@ -31,9 +36,24 @@ class PasswordStrengthIndicatorWidget extends BaseWidget<
     return [];
   }
 
+  static getMetaPropertiesMap(): Record<string, any> {
+    return {
+      buttonDisabled: undefined,
+    };
+  }
+
+  disableButton(status: boolean) {
+    this.props.updateWidgetMetaProperty("buttonDisabled", status);
+  }
+
   getPageView() {
     const { value } = this.props;
-    return <PasswordStrengthIndicatorComponent value={value} />;
+    return (
+      <PasswordStrengthIndicatorComponent
+        disableButton={this.disableButtonBound}
+        value={value}
+      />
+    );
   }
 
   static getWidgetType(): string {

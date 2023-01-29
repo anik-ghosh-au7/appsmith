@@ -8,7 +8,7 @@ interface PasswordStrengthProps {
 
 interface PropTypes {
   value: string;
-  setDisableButton?: (arg0: boolean) => void;
+  disableButton: (arg0: boolean) => void;
 }
 
 type FlexProps = {
@@ -140,7 +140,7 @@ const validatePassword = (
   return { ...res, isValid };
 };
 
-const PasswordStrengthIndicator = ({ setDisableButton, value }: PropTypes) => {
+const PasswordStrengthIndicator = ({ disableButton, value }: PropTypes) => {
   const [
     {
       hasLowerCase,
@@ -159,9 +159,9 @@ const PasswordStrengthIndicator = ({ setDisableButton, value }: PropTypes) => {
     const validationData = validatePassword(value || "");
     setValidations({ ...validationData });
     if (!validationData.isValid) {
-      setDisableButton && setDisableButton(true);
+      disableButton(true);
     } else {
-      setDisableButton && setDisableButton(false);
+      disableButton(false);
     }
   }, [value]);
 

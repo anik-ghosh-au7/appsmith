@@ -5,7 +5,7 @@ export const CONFIG = {
   type: Widget.getWidgetType(),
   name: "Password Strength Indicator", // The display name which will be made in uppercase and show in the widgets panel ( can have spaces )
   iconSVG: IconSVG,
-  needsMeta: false, // Defines if this widget adds any meta properties
+  needsMeta: true, // Defines if this widget adds any meta properties
   isCanvas: false, // Defines if this widget has a canvas within in which we can drop other widgets
   features: {
     dynamicHeight: {
